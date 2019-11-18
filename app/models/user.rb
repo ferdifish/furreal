@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :bookings
+  has_many :rented_pets, through: :bookings, source: :pet
   has_many :pets
-  has_many :pets, through: :bookings
+  # has_many :rented_pets, through: :bookings, class_name: "Pet", foreign_key: "pet_id"
 end
