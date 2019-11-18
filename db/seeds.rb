@@ -5,3 +5,64 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'Cleaning database...'
+# Ingredient.destroy_all
+Pet.destroy_all
+# Booking.destroy_all
+# Review.destroy_all
+
+test_user = User.create(first_name: 'test', last_name: 'test', email: 'test@test.com', password: '123123', location: 'townsville' )
+
+pets_array = [
+  {
+    name:           'Clifford',
+    price_per_day:  100,
+    description:    "Big and red. Needs lots of food.",
+    species:        'Dog',
+    photo:          'https://images.unsplash.com/photo-1553776590-89774e24b34a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80',
+    user:           test_user
+  },
+  {
+    name:           'Rex',
+    price_per_day:   25,
+    description:    'Pretty cool dog. Old.',
+    species:        'Dog',
+    photo:          'https://images.unsplash.com/photo-1561984142-7fabd0b4c9b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
+    user:           test_user
+  },
+  {
+    name:           'Cat',
+    price_per_day:   8,
+    description:    'This is a cat.',
+    species:        'Cat',
+    photo:          'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
+    user:           test_user
+  },
+  {
+    name:           'Snowy',
+    price_per_day:   46,
+    description:    'Lovely dog. Moody.',
+    species:        'Dog',
+    photo:          'https://images.unsplash.com/photo-1553776590-89774e24b34a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80',
+    user:           test_user
+  },
+  {
+    name:           'Lucky',
+    price_per_day:   50,
+    description:    'Good pet. 7/10.',
+    species:        'Dog',
+    photo:          'https://images.unsplash.com/photo-1558233043-45af001ed5b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    user:           test_user
+  },
+  {
+    name:           'Benji',
+    price_per_day:   5,
+    description:    "This is a lizard. He's alright.",
+    species:        'Lizard',
+    photo:          'https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80',
+    user:           test_user
+  }
+
+]
+Pet.create!(pets_array)
+puts 'Finished!'
