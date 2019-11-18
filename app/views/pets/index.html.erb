@@ -16,9 +16,7 @@
         <h2><%= link_to pet.name, pet_path(pet)%></h2>
         <p><%= pet.species %></p>
         <p><%= pet.price_per_day %></p>
-        <% if pet.photo.present? %>
-          <%=  cl_image_tag pet.photo, height: 300, width: 330, crop: :fill %>
-        <% end %>
+        <img src= <%= pet.photo %>>
         <%= link_to 'Delete', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
     <% end %>
