@@ -10,14 +10,14 @@
   </div>
 </div>
 
-<%#= render 'bookings/new' %>
-
-<%#= render 'reviews/index' %>
+<%#= render 'shared/booking_form' %>
 
 <% if @pet.user == current_user %>
   <%= link_to 'Delete Listing', pet_path(@pet), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 <%#= this is for the reviews button %>
+
+<%#= render 'reviews/index' %>
 <% if @reviews != nil %>
   <% @reviews.each do |review| %>
     <%= review.content %>
