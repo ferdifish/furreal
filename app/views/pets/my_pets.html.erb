@@ -1,0 +1,7 @@
+<% @pets.each do |pet| %>
+  <%= pet.name %>
+  <% pet.photos.each do |photo| %>
+    <img src= <%= pet.photo %>>
+  <% end %>
+  <br>
+<% end %>
