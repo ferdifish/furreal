@@ -2,7 +2,7 @@
   <div class="row justify-center-center">
     <div class="col-md-8">
 
-    <%= simple_form_for(@review) do |f| %>
+    <%= simple_form_for([@booking, @review]) do |f| %>
       <%= f.input :content %>
       <%= f.input :rating %>
       <%= f.button :submit, class: "btn btn-primary" %>
