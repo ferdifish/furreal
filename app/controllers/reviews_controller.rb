@@ -1,13 +1,28 @@
 class ReviewsController < ApplicationController
-  def index
-  end
-
   def new
+    @booking = Booking.find(params[:booking_id])
+    @review = Review.new
   end
 
   def create
+    @review = Review.new(review_params)
+    @review.booking = Booking.find(params[:booking_id])
+    @pet = @review.booking.pet
+    if @review.save
+      redirect_to pet_path(@pet)
+    else
+      render :new
+    end
   end
 
-  def destroy
+  # def destroy
+  #   @review = Review.find(params[:id])
+  #   @review.destroy
+  # end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:content, :rating)
   end
 end
