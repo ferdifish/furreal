@@ -1,0 +1,12 @@
+<h1>Reviews:</h1>
+
+<% if @reviews != nil %>
+  <% @reviews.each do |review| %>
+    <div class="cards">
+      <%= review.content %>
+      <%= "*" * review.rating %>
+    </div>
+  <% end %>
+<% else %>
+  <p>No reviews yet</p>
+<% end %>
