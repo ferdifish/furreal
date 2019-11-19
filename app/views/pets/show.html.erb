@@ -17,4 +17,17 @@
 <% if @pet.user == current_user %>
   <%= link_to 'Delete Listing', pet_path(@pet), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
+<%#= this is for the reviews button %>
+<% if @reviews != nil %>
+  <% @reviews.each do |review| %>
+    <%= review.content %>
+    <%= review.rating %>
+  <% end %>
+<% end %>
+
+<br>
+<%= link_to new_booking_review_path(@pet) do %>
+<button class="btn btn-primary">Add a review</button>
+<% end %>
+
 
