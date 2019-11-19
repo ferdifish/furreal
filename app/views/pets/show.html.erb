@@ -1,33 +1,41 @@
-<div class="container d-flex flex-row">
-  <div class="pet-profile">
+<div class="container">
+  <div class="pet-profile d-flex flex-row">
     <img width = "500px" src= <%= @pet.photo %> >
+    <div class="pet-info ml-3">
+      <h1> <%= @pet.name %> the <%= @pet.species %> </h1>
+      <p> <%= @pet.description %> </p>
+      <h5> $<%= @pet.price_per_day %> per day </h5>
+      <%= link_to 'Book me', new_pet_booking_path(@pet), class: "btn btn-primary" %>
+      <% if @pet.user == current_user %>
+        <%= link_to 'Delete Listing', pet_path(@pet), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
   </div>
-  <div class="pet-info ml-3">
-    <h1> <%= @pet.name %> the <%= @pet.species %> </h1>
-    <p> <%= @pet.description %> </p>
-    <h5> $<%= @pet.price_per_day %> per day </h5>
-    <%= link_to 'Book me', new_pet_booking_path(@pet), class: "btn btn-primary" %>
+
+  <div class="bookings_form">
+    <%= render "shared/booking_form" %>
   </div>
-</div>
 
-<%#= render 'shared/booking_form' %>
+  <div class="reviews_index">
+    <h1>Reviews:</h1>
 
-<% if @pet.user == current_user %>
-  <%= link_to 'Delete Listing', pet_path(@pet), method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
-<%#= this is for the reviews button %>
-
-<%#= render 'reviews/index' %>
 <% if @reviews != nil %>
   <% @reviews.each do |review| %>
-    <%= review.content %>
-    <%= review.rating %>
+    <div class="cards">
+      <%= review.content %>
+      <%= "*" * review.rating %>
+    </div>
   <% end %>
+<% else %>
+  <p>No reviews yet</p>
 <% end %>
 
-<br>
-<%= link_to new_booking_review_path(@pet) do %>
-<button class="btn btn-primary">Add a review</button>
-<% end %>
+  </div>
 
+  <%= link_to "Back", pets_path, class: "btn btn-primary" %>
+
+</div>
+
+
+<%#= render 'shared/booking_form' %>
 
