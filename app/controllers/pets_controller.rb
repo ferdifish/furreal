@@ -14,6 +14,7 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     @reviews = @pet.reviews
+    @booking = Booking.new
   end
 
   def new
