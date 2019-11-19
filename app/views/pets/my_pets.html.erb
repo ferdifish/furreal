@@ -1,7 +1,7 @@
 <% @pets.each do |pet| %>
   <%= pet.name %>
   <% pet.photos.each do |photo| %>
-    <img src= <%= pet.photo %>>
-  <% end %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
   <br>
 <% end %>
