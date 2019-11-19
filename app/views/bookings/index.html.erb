@@ -1,1 +1,14 @@
-<h1>My Bookings</h1>
+<div class="container text-center">
+  <h2>My Bookings</h2>
+    <% @bookings.each do |booking| %>
+      <div class="row">
+        <div class="card" style='margin: 10px'>
+          <h2><%= "#{booking.start_date} => #{booking.end_date}" %></h2>
+          <img src= <%= booking.pet.photo %>>
+            <%= link_to new_booking_review_path(booking) do %>
+            <button class="btn btn-primary" style='margin: 10px'>Add a review</button>
+          <% end %>
+      </div>
+      </div>
+    <% end %>
+</div>
