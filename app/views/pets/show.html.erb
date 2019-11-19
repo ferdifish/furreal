@@ -12,8 +12,24 @@
     </div>
   </div>
 
-  <div class="booking_form">
-    <%= render 'shared/booking_form' %>
+  <div class="bookings_form">
+    <%= render "shared/booking_form" %>
+  </div>
+
+  <div class="reviews_index">
+    <h1>Reviews:</h1>
+
+<% if @reviews != nil %>
+  <% @reviews.each do |review| %>
+    <div class="cards">
+      <%= review.content %>
+      <%= "*" * review.rating %>
+    </div>
+  <% end %>
+<% else %>
+  <p>No reviews yet</p>
+<% end %>
+
   </div>
 
   <%= link_to "Back", pets_path, class: "btn btn-primary" %>
