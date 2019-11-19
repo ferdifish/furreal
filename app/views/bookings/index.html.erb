@@ -5,7 +5,7 @@
       <div class="card-product" style='margin: 20px'>
       <img src= <%= booking.pet.photo %>>
         <div class="card-product-infos">
-          <h2><%= booking.start_date %> => <%= booking.start_date.to_date %> </h2>
+          <h2><%= booking.start_date %> => <%= booking.end_date %> </h2>
           <p><%= booking.pet.name %></p>
 
           <%= link_to new_booking_review_path(booking) do %>
