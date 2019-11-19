@@ -8,15 +8,12 @@
 
 <div class="container text-center">
   <h2>Pets</h2>
-  <%= link_to "Add +", new_pet_path, class: 'btn btn-primary'%>
-  <br>
   <div class="cards">
     <% @pets.each do |pet| %>
       <div class="card">
         <h2><%= link_to "#{pet.name} (#{pet.species})", pet_path(pet)%></h2>
         <p>$<%= pet.price_per_day %> per day</p>
         <img src= <%= pet.photo %>>
-        <%= link_to 'Delete', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
     <% end %>
   </div>
