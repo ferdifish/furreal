@@ -1,6 +1,6 @@
 <div class="container">
   <div class="pet-profile d-flex flex-row">
-    <img width = "500px" src= <%= @pet.photo %> >
+    <%= cl_image_tag(@pet.photos.first.key) %>
     <div class="pet-info ml-3">
       <h1> <%= @pet.name %> the <%= @pet.species %> </h1>
       <p> <%= @pet.description %> </p>

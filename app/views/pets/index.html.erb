@@ -13,7 +13,7 @@
       <div class="card">
         <h2><%= link_to "#{pet.name} (#{pet.species})", pet_path(pet)%></h2>
         <p>$<%= pet.price_per_day %> per day</p>
-        <img src= <%= pet.photo %>>
+        <%= cl_image_tag(pet.photos.first.key) %>
       </div>
     <% end %>
   </div>
