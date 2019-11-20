@@ -149,6 +149,7 @@ Pet.all.each do |pet|
   filename = pet.name + ".jpg"
   pet.photos.attach(io: file, filename: filename, content_type: 'image/jpg')
   # Here we write article.photo.attach(...) because we wrote has_one_attached :photo in app/models article.rb
+  pet.location = pet.user.location
   pet.save
 end
 
