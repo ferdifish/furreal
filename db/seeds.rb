@@ -13,8 +13,9 @@ Booking.destroy_all
 Pet.destroy_all
 User.destroy_all
 
+numbers = [1..20]
 10.times do
- User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', location: Faker::Address.city)
+ User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', location: "SW#{rand(1..20)}")
 end
 
 # User. = User.create(first_name: 'test', last_name: 'test', email: 'test@test.com', password: '123123', location: 'townsville' )
