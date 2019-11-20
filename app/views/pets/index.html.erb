@@ -2,24 +2,31 @@
   <div class="container">
     <h1 class="banner-title">Fur Real</h1>
     <p>Hire Your Pet Best Friend Today!</p>
-    <a class="btn btn-primary" href="#">Hire me!</a>
+    <br>
+    <%= form_tag(pets_path, method: 'get') do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag("Sniff out", name: nil) %>
+    <% end %>
   </div>
 </div>
 
 <div class="container text-center">
   <br>
-  <h2>Today's top good boys near you:</h2>
+  <h2><strong>Today's top good boys near you:</strong></h2>
   <br>
   <div class="cards">
     <% @pets.each do |pet| %>
       <div class="card">
         <h2><%= link_to "#{pet.name} (#{pet.species})", pet_path(pet)%></h2>
-        <p>$<%= pet.price_per_day %> per day</p>
-        <% if pet.photos.any? %>
-        <%= cl_image_tag pet.photos.first.key, height: 300, width: 400, crop: :fill %>
-        <% else %>
-        <%= image_tag "default.jpg", alt: "alttext" %>
-        <% end %>
+        <p>$<%= pet.price_per_day %> <em>per day</em></p>
+        <p><%= pet.description %></p>
+        <div class='card-image-container'>
+          <% if pet.photos.any? %>
+          <%= cl_image_tag pet.photos.first.key, height: 300, width: 300, crop: :fill, class: 'card-image' %>
+          <% else %>
+          <%= image_tag "default.jpg", alt: "alttext" %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
@@ -32,6 +39,3 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
 </div>
-
-
-
