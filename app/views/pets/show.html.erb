@@ -17,11 +17,14 @@
 
   <div class="reviews_index m-5">
     <h1>Reviews:</h1>
+    <br>
     <% if @reviews != nil %>
       <% @reviews.each do |review| %>
         <div class="reviews-cards">
-          <%= review.content %>
-          <%= "*" * review.rating %>
+          <h5><%= review.booking.user.first_name %>:</h5>
+          <p><%= review.content %></p>
+          <p><%= "*" * review.rating %></p>
+          <br>
         </div>
       <% end %>
     <% else %>
@@ -33,6 +36,13 @@
 
 </div>
 
-
+<div
+    id="map"
+    style="width: 100%;
+    height: 600px;
+    margin:30px"
+    data-markers="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 <%#= render 'shared/booking_form' %>
 
