@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2019_11_20_135702) do
     t.integer "price_per_day"
     t.text "description"
     t.string "species"
-    t.string "photo"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

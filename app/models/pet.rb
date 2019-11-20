@@ -7,6 +7,5 @@ class Pet < ApplicationRecord
   validates :species, presence: true
   validates :description, presence: true
   validates :price_per_day, presence: true
-  validates :photos, presence: true
   validates :user, presence: true
 end
