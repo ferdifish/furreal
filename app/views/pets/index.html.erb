@@ -7,13 +7,18 @@
 </div>
 
 <div class="container text-center">
-  <h2>Pets</h2>
+  <h2>Today's top good boys near you:</h2>
   <div class="cards">
     <% @pets.each do |pet| %>
       <div class="card">
         <h2><%= link_to "#{pet.name} (#{pet.species})", pet_path(pet)%></h2>
         <p>$<%= pet.price_per_day %> per day</p>
-        <img src= <%= pet.photo %>>
+        <% if pet.photos.any? %>
+        <%= cl_image_tag pet.photos.first.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+        <img src="default.jpg" alt="">
+        <% end %>
+
       </div>
     <% end %>
   </div>
