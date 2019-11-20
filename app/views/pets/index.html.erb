@@ -16,7 +16,7 @@
         <% if pet.photos.any? %>
         <%= cl_image_tag pet.photos.first.key, height: 300, width: 400, crop: :fill %>
         <% else %>
-        <img src="default.jpg" alt="">
+        <%= image_tag "default.jpg", alt: "alttext" %>
         <% end %>
 
       </div>
