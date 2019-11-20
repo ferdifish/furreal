@@ -32,7 +32,7 @@
       <%= cl_image_tag(booking.pet.photos.first.key) %>
         <div class="card-product-infos">
           <h2><%= booking.pet.name %></h2>
-          <h2><%= booking.start_date %> => <%= booking.end_date %> </h2>
+          <h2><%= booking.start_date.strftime("%a, %d %B, %Y") %> - <%= booking.end_date.strftime("%a, %d %B, %Y") %> </h2>
           <% if Time.now > booking.end_date %>
             <%= link_to new_booking_review_path(booking) do %>
               <button class="btn btn-primary" style='margin: 10px'>Add a review</button>
