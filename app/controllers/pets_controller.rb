@@ -1,9 +1,13 @@
 class PetsController < ApplicationController
   def index
-    if current_user
-      @pets = Pet.where.not(user: current_user)
-    else
-      @pets = Pet.all
+    @pets = Pet.where.not(latitude: nil, longitude: nil)
+
+    @markers = @pets.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { pet: pet })
+      }
     end
   end
 
@@ -23,6 +27,9 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
+    @pet.location = current_user.location
+    @pet.latitude = current_user.latitude
+    @pet.longitude = current_user.longitude
     @pet.user = current_user
     if @pet.save
       redirect_to pets_path
