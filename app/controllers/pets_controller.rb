@@ -2,21 +2,7 @@ class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def home
-    if current_user
-      @pets = Pet.where.not(user: current_user)
-    else
-      @pets = Pet.all
-    end
-
-    @marked_pets = Pet.where.not(latitude: nil, longitude: nil)
-
-    @markers = @pets.map do |pet|
-      {
-        lat: pet.latitude,
-        lng: pet.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { pet: pet })
-      }
-    end
+    @pets = Pet.all
   end
 
   def index
