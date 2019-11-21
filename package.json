@@ -8,7 +8,9 @@
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.5.0",
     "places.js": "^1.17.0",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.16.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^9.3.17"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"
