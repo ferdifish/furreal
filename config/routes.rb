@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'my-pets', to: 'pets#my_pets', as: :my_pets
   devise_for :users
-  root to: 'pets#index'
+  root to: 'pets#home'
   resources :bookings, only: [:index, :show, :destroy] do
     resources :reviews, only: [:new, :create]
   end
