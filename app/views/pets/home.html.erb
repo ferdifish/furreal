@@ -4,32 +4,35 @@
       <div class="col-md-6">
         <h1 class="banner-title">Fur Real</h1>
         <p>Hire Your Pet Best Friend Today!</p>
-      </div>
-      <div class="col-md-6">
         <%= render 'home_search_form' %>
       </div>
     </div>
   </div>
 </div>
 
+<div id='content'>
 <div class="container text-center">
   <br>
   <h2><strong>Today's top good boys near you:</strong></h2>
   <br>
   <div class="cards">
-    <% @pets.each do |pet| %>
-      <div class="card">
-        <h2><%= link_to "#{pet.name} (#{pet.species})", pet_path(pet)%></h2>
-        <p>$<%= pet.price_per_day %> <em>per day</em></p>
-        <p><%= pet.description %></p>
-        <div class='card-image-container'>
-          <% if pet.photos.any? %>
-          <%= cl_image_tag pet.photos.first.key, height: 300, width: 300, crop: :fill, class: 'card-image' %>
-          <% else %>
-          <%= image_tag "default.jpg", alt: "alttext" %>
-          <% end %>
+      <% @pets.sample(6).each do |pet| %>
+        <%= link_to pet_path(pet) do %>
+        <div class="card">
+          <h2><%= pet.name %></h2>
+          <h3><%= pet.species %></h3>
+          <p>$<%= pet.price_per_day %> / <em>day</em></p>
+          <p>"<%= pet.description %>"</p>
+          <div class='card-image-container'>
+            <% if pet.photos.any? %>
+            <%= cl_image_tag pet.photos.first.key, height: 300, width: 300, crop: :fill, class: 'card-image' %>
+            <% else %>
+            <%= image_tag "default.jpg", alt: "alttext" %>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+        <% end %>
+      <% end %>
   </div>
+</div>
 </div>
