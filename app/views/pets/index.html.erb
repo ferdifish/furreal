@@ -10,29 +10,28 @@
           <%= image_tag 'default.jpg', alt: 'alttext' %>
           <% end %>
 
-            <div class='container'>
-          <div class='card-product-infos'>
-              <div class='row'>
-                <div class='col-6'>
-                  <h2><%= link_to "#{pet.name} (#{pet.species})", pet_path(pet)%></h2>
-                  <p>$<%= pet.price_per_day %> <em>per day</em></p>
-                  <p><%= pet.description %></p>
-                </div>
-                <div class=col-6>
-                  <p>
-                  <% (full = rand(1..5)).times do %>
-                  <i class="fas fa-star"></i>
-                  <% end %>
-                  <% (5-full).times do %>
-                  <i class="far fa-star"></i>
-                  <% end %>
-                  </p>
+          <div class='container'>
+            <div class='card-product-infos'>
+                <div class='row'>
+                  <div class='col-6'>
+                    <h2><%= link_to "#{pet.name} (#{pet.species})", pet_path(pet)%></h2>
+                    <p>$<%= pet.price_per_day %> <em>per day</em></p>
+                    <p><%= pet.description %></p>
+                  </div>
+                  <div class=col-6>
+                    <p>
+                    <% (full = rand(1..5)).times do %>
+                    <i class="fas fa-star"></i>
+                    <% end %>
+                    <% (5-full).times do %>
+                    <i class="far fa-star"></i>
+                    <% end %>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-        </div>
         <div class="border-bottom"></div>
       <% end %>
       </div>

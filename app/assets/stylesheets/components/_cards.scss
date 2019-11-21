@@ -61,14 +61,15 @@
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 200px;
   display: flex;
   align-items: center;
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 200px;
+  border-radius: 5px;
   object-fit: cover;
 }
 
