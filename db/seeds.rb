@@ -13,15 +13,17 @@ Booking.destroy_all
 Pet.destroy_all
 User.destroy_all
 
-# User creation
+#Users
+puts 'Creating users...'
 numbers = [1..20]
 20.times do
- User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', location: "SW#{rand(1..20)}")
+ User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', location: "SW#{rand(3..20)}")
 end
-clifford_user = User.create(first_name: 'Clifford', last_name: 'Mum', email: 'clifford@test.com', password: '123123', location: "SW1" )
-test_user = User.create(first_name: 'test', last_name: '<t>q</t>est', email: 'test@test.com', password: '123123', location: "SW1" )
+clifford_user = User.create(first_name: 'Clifford', last_name: 'Mum', email: 'clifford@test.com', password: '123123', location: "SW18" )
+test_user = User.create(first_name: 'Sam', last_name: 'Sam', email: 'sam@gmail.com', password: '123123', location: "SW5" )
 
-# Pets Creation
+#Pets
+puts 'Creating pets...'
 
 clifford_pet = Pet.create({
     name:           'Clifford',
@@ -84,7 +86,7 @@ pets_array = [
   {
     name:           'Cristiano Ronaldo',
     price_per_day:   5,
-    description:    "Not good at soccer. Such high hopes.",
+    description:    "Afraid of footballs. Such high hopes.",
     species:        'Cat',
     user:           User.all.sample
   },
@@ -154,6 +156,7 @@ Pet.all.each do |pet|
 end
 
 # Bookings Creation
+puts 'Creating bookings...'
 
 clifford_bookings = Booking.create!([
   {
@@ -210,6 +213,11 @@ test_user_bookings = Booking.create!([
 ])
 
 # Reviews creation
+puts 'Creating reviews...'
+
+test_user_bookings[0,1].each do |booking|
+  Review.create!(content: Faker::Movies::HarryPotter.quote, rating: rand(3..5), booking: booking)
+end
 
 clifford_bookings.each do |booking|
   Review.create!(content: Faker::Movies::HarryPotter.quote, rating: rand(3..5), booking: booking)
