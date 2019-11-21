@@ -88,7 +88,7 @@
 
 .card-product img {
   height: 100%;
-  width: 200px;
+  width: 200px !important;
   border-radius: 5px;
   object-fit: cover;
 }
@@ -109,13 +109,9 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  // padding: 16px;
 }
 
 .card-product:hover{
   opacity: none;
-}
-
-.card-image {
-  width: 100%;
 }
