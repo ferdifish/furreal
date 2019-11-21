@@ -3,18 +3,38 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin: 10px;
+  color: black;
+
+  a, a:hover {
+    color: black !important;
+    text-decoration: none;
+  }
+
+  a:hover {
+    .card {
+      background-color: #EFEFEF;
+      transition: 0.3s;
+    }
+  }
 }
 
 .card{
   background-color: white;
   padding: 10px;
   border-radius: 15px;
-  a {
-    color: black !important;
+  box-shadow: 3px 5px 5px #888888;
+  text-decoration: none;
+  height: 100%;
+
+  h3 {
+    font-size: 1.1em;
   }
+
   img {
     object-fit: cover;
     height: 250px;
+    border: 1px solid black;
+    border-radius: 8px;
   }
   .card-image-container {
     height: 100%;
