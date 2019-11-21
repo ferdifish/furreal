@@ -12,7 +12,9 @@
 <!--     <link rel="stylesheet" href="mapbox-gl/dist/mapbox-gl.css"> Uncomment if you import CSS in app/javascript/packs/application.js
  -->  </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <% unless params[:controller] == 'pets' && params[:action] == 'home' %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
