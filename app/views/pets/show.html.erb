@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row py-2">
     <div class="col-6 pet-show-image bg-white">
       <%= cl_image_tag(@pet.photos.first.key)%>
     </div>
@@ -16,21 +16,22 @@
   </div>
   <div class="row my-3">
     <div class="col-6">
-      <div class="pet-info ml-3 mt-5">
-        <h5>Name: </h5>
-        <p><%= @pet.name %></p>
-        <h5>Species: </h5>
-        <p><%= @pet.species %></p>
-        <h5>About Me: </h5>
-        <p> <%= @pet.description %> </p>
-        <h5>My Crib:</h5>
-        <p> London </p>
-        <h5>Price: </h5>
-        <p> $<%= @pet.price_per_day %> per day </p>
+      <div class="pet-info ml-3 mt-1 border-right">
+        <h1 class="mb-4">About Me</h1>
+        <h5><strong>Name:</strong> <%= @pet.name %> </h5>
+        <br>
+        <h5><strong>Species:</strong> <%= @pet.species %></h5>
+        <br>
+        <h5><strong>Description:</strong> <%= @pet.description %> </h5>
+        <br>
+        <h5><strong>My Crib:</strong> London</h5>
+        <br>
+        <h5><strong>Price:</strong> $<%= @pet.price_per_day %> per day </h5>
+        <br>
       </div>
     </div>
     <div class="col-6">
-      <div class="container bookings_form p-5">
+      <div class="container bookings_form mt-1">
         <h1>Play with me!</h1>
         <%= render "shared/booking_form" %>
       </div>
@@ -38,26 +39,27 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="container reviews_index p-5">
+      <div class="container reviews_index p-5 border-top">
         <h1>Reviews:</h1>
         <br>
         <% if @reviews.nil? %>
           <p>Be the first to leave a review</p>
         <% else %>
           <% @reviews.each do |review| %>
-            <div class="reviews-cards">
+            <div class="reviews-cards mb-5">
               <h5><%= review.booking.user.first_name %>:</h5>
               <p><%= review.content %></p>
-              <p><%= "*" * review.rating %></p>
-              <br>
+              <% (review.rating).times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
   </div>
+  <%= link_to "Back", pets_path, class: "btn btn-pets m-5" %>
 </div>
 
-<%= link_to "Back", pets_path, class: "btn btn-primary m-5" %>
 
 
