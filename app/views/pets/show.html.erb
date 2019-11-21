@@ -1,48 +1,53 @@
 <div class="container">
-  <div class="pet_profile d-flex flex-row justify-content-center">
-    <%= cl_image_tag(@pet.photos.first.key,
-      width: 700, height: 400, crop: :fill)%>
-    <div class="pet-info ml-3">
-      <h1> <%= @pet.name %> the <%= @pet.species %> </h1>
-      <p> <%= @pet.description %> </p>
-      <p> London </p>
-      <h5> $<%= @pet.price_per_day %> per day </h5>
+  <div class="row">
+    <div class="col-8 pet-show-image bg-white">
+      <%= cl_image_tag(@pet.photos.first.key)%>
+    </div>
+    <div class="col-4">
+      <div class="pet-info ml-3">
+        <h1> <%= @pet.name %> the <%= @pet.species %> </h1>
+        <p> <%= @pet.description %> </p>
+        <p> London </p>
+        <h5> $<%= @pet.price_per_day %> per day </h5>
+      </div>
     </div>
   </div>
-
-  <div class="bookings_form m-5">
-    <h1>Create Booking:</h1>
-    <%= render "shared/booking_form" %>
+  <div class="row">
+    <div class="col-s-6">
+      <div class="reviews_index m-5">
+        <h1>Reviews:</h1>
+        <br>
+        <% if @reviews != nil %>
+          <% @reviews.each do |review| %>
+            <div class="reviews-cards">
+              <h5><%= review.booking.user.first_name %>:</h5>
+              <p><%= review.content %></p>
+              <p><%= "*" * review.rating %></p>
+              <br>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No reviews yet</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-s-6">
+      <div class="bookings_form m-5 border-left border-right">
+        <h1>Create Booking:</h1>
+        <%= render "shared/booking_form" %>
+      </div>
+    </div>
   </div>
-
-  <div class="reviews_index m-5">
-    <h1>Reviews:</h1>
-    <br>
-    <% if @reviews != nil %>
-      <% @reviews.each do |review| %>
-        <div class="reviews-cards">
-          <h5><%= review.booking.user.first_name %>:</h5>
-          <p><%= review.content %></p>
-          <p><%= "*" * review.rating %></p>
-          <br>
-        </div>
-      <% end %>
-    <% else %>
-      <p>No reviews yet</p>
-    <% end %>
-  </div>
-
-  <%= link_to "Back", pets_path, class: "btn btn-primary m-5" %>
-
+</div>
+<div
+  id="map"
+  style="width: 100%;
+  height: 300px;
+  margin:30px"
+  data-markers="<%= @marker.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div
-    id="map"
-    style="width: 100%;
-    height: 600px;
-    margin:30px"
-    data-markers="<%= @marker.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-<%#= render 'shared/booking_form' %>
+<%= link_to "Back", pets_path, class: "btn btn-primary m-5" %>
+
 

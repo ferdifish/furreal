@@ -1,3 +1,17 @@
 .bookings_form, .reviews_index {
   padding: 30px;
 }
+
+p {
+  font-size: 20px;
+}
+
+.pet-show-image {
+  border: 6px solid white;
+  box-shadow: 2px 1px 7px rgba(0,0,0,0.2);
+}
+
+.pet-show-image img {
+  width: 100%;
+  object-fit: cover;
+}
