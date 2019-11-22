@@ -8,7 +8,7 @@
         id="map"
         style="width: 100%;
         height: 300px;
-        margin:30px"
+        margin: 0px;
         data-markers="<%= @marker.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
@@ -16,10 +16,8 @@
   </div>
   <div class="row my-3">
     <div class="col-6">
-      <div class="pet-info ml-3 mt-1 border-right">
-        <h1 class="mb-4">About Me</h1>
-        <h5><strong>Name:</strong> <%= @pet.name %> </h5>
-        <br>
+      <h1 id="pet-name"> <%= @pet.name %> </h1>
+      <div class="pet-info mt-3 border-right">
         <h5><strong>Species:</strong> <%= @pet.species %></h5>
         <br>
         <h5><strong>Description:</strong> <%= @pet.description %> </h5>
@@ -45,9 +43,10 @@
         <% if @reviews.nil? %>
           <p>Be the first to leave a review</p>
         <% else %>
-          <% @reviews.each do |review| %>
+          <% @reviews.reverse.each do |review| %>
             <div class="reviews-cards mb-5">
               <h5><%= review.booking.user.first_name %>:</h5>
+              <p> <%= review.created_at %> </p>
               <p><%= review.content %></p>
               <% (review.rating).times do %>
                 <i class="fas fa-star"></i>
