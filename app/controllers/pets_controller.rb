@@ -31,12 +31,12 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     @reviews = @pet.reviews
     @booking = Booking.new
-    @marker =
-    {
-      lat: @pet.latitude,
-      lng: @pet.longitude,
-      infoWindow: render_to_string(partial: "info_window", locals: { pet: @pet })
-    }
+    @marker = [
+      {
+        lat: @pet.latitude,
+        lng: @pet.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { pet: @pet })
+      }]
   end
 
   def new
