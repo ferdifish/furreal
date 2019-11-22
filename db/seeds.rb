@@ -20,7 +20,7 @@ numbers = [1..20]
  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123123', location: "SW#{rand(3..20)}")
 end
 clifford_user = User.create(first_name: 'Clifford', last_name: 'Mum', email: 'clifford@test.com', password: '123123', location: "SW18" )
-test_user = User.create(first_name: 'Sam', last_name: 'Sam', email: 'sam@gmail.com', password: '123123', location: "SW5" )
+test_user = User.create(first_name: 'Sam', last_name: 'Sam', email: 'sam@gmail.com', password: '123123', location: "SW3 London" )
 
 #Pets
 puts 'Creating pets...'

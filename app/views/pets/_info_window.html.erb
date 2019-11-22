@@ -1,2 +1,3 @@
-<h2><%= pet.name %></h2>
-<p><%= pet.user.location %></p>
+<%= link_to "#{pet.name}", pet_path(pet)%>
+<%= link_to "#{pet.user.location}", pet_path(pet)%>
+<%= cl_image_tag(pet.photos.first.key, width: 100) %>
