@@ -2,7 +2,6 @@
   <% @bookings.each do |booking| %>
     <% if booking.user == @user %>
       <% if Time.now > booking.end_date %>
-        <%= link_to pet_path(booking.pet) do %>
           <div class='row border-bottom'>
             <div class=col-12>
               <div class="card-product" style='margin: 20px'>
@@ -17,7 +16,6 @@
               </div>
             </div>
           </div>
-        <% end %>
       <% end %>
     <% end %>
   <% end %>
