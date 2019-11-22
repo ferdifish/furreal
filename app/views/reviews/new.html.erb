@@ -1,5 +1,14 @@
-<div class="text-center reviews_form">
-  <h1>New Review</h1>
-  <%= render 'shared/review_form', review: @review %>
-  <%= link_to "Back", bookings_path, class: "btn btn-pets mt-3" %>
+<div class="reviews_form minimum-height mt-5">
+  <div class="text-center container">
+    <div class="row">
+      <div class="col-6">
+        <h1>Review Me!</h1>
+        <%= render 'shared/review_form', review: @review %>
+      </div>
+      <div class="col-6 pet-show-image bg-white">
+        <%= cl_image_tag(@pet.photos.first.key)%>
+      </div>
+    </div>
+  </div>
+  <%= link_to "Back", bookings_path, class: "btn btn-ghost mt-2 float-right" %>
 </div>

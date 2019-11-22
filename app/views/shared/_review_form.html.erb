@@ -1,8 +1,14 @@
-<%= simple_form_for([@booking, @review]) do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.button :submit, class: "btn btn-pets" %>
-<% end %>
+<div class="container">
+  <div class="col-10 offset-1">
+    <div class="reviews-form">
+      <%= simple_form_for([@booking, @review]) do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating, collection: 1..5 %>
+        <%= f.button :submit, class: "btn btn-pets" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 
