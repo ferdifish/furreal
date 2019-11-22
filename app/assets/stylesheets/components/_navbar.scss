@@ -1,8 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: #56A078 !important;
+  background-color: #56A078;
   height: 70px;
   color: white !important;
+
 }
 // #AC3931
 
@@ -14,4 +15,14 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+.nav-home {
+    position: absolute;
+    background-color: transparent;
+    color: white;
+    width: 100%;
+}
+.nav-link {
+  color: white !important;
+
 }
