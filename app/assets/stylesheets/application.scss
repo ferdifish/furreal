@@ -36,4 +36,16 @@ h3 {
 p {
   font-size: 20px;
 }
-
+.minimum-height {
+  min-height: calc(100vh - 170px);
+}
+.credentials-container {
+  width: 600px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.login {
+  width: 100%;
+}
