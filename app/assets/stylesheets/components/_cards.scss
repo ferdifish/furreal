@@ -21,8 +21,8 @@
 .card{
   background-color: white;
   padding: 10px;
-  border-radius: 15px;
-  box-shadow: 3px 5px 5px #888888;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #888888;
   text-decoration: none;
   height: 100%;
 
@@ -33,7 +33,7 @@
   img {
     object-fit: cover;
     height: 250px;
-    border: 1px solid black;
+    // border: 1px solid black;
     border-radius: 8px;
   }
   .card-image-container {
@@ -94,14 +94,14 @@
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
   margin: 0;
   opacity: .7;
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 18px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
